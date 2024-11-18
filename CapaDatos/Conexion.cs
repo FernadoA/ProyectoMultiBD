@@ -18,6 +18,11 @@ namespace CapaDatos
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionSQL"].ConnectionString);
             return connection;
         }
+        public SqlConnection ConectaSQLSBD()
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionSQLSBD"].ConnectionString);
+            return connection;
+        }
 
         // Método para conexión a MySQL
         public MySqlConnection ConectaMySQL()

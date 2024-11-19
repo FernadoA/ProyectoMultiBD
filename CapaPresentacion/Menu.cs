@@ -16,5 +16,16 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Consultas consultas = new Consultas();
+            consultas.Show();
+        }
     }
 }

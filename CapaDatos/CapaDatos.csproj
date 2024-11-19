@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="ClientesDAO.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConsultasDAO.cs" />
     <Compile Include="DetallePedidosDAO.cs" />
     <Compile Include="DevolucionesDAO.cs" />
     <Compile Include="Empleados_rhDAO.cs" />

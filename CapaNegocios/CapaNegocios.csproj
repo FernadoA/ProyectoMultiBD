@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ClientesCN.cs" />
+    <Compile Include="DetallePedidosCN.cs" />
+    <Compile Include="DevolucionesCN.cs" />
+    <Compile Include="Empleados_rhCN.cs" />
+    <Compile Include="GestionPedidosCN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

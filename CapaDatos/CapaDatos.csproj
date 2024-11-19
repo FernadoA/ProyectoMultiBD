@@ -120,7 +120,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesDAO.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DetallePedidosDAO.cs" />
+    <Compile Include="DevolucionesDAO.cs" />
+    <Compile Include="Empleados_rhDAO.cs" />
+    <Compile Include="GestionPedidosDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

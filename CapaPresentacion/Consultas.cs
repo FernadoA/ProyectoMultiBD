@@ -151,6 +151,11 @@ namespace CapaPresentacion
 
         private void btnAsistencia_Click(object sender, EventArgs e)
         {
+            gBox1.Visible = false;
+            gBox2.Visible = false;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = false;
             ConsultasCN consultaCN = new ConsultasCN();
             DataSet Data = consultaCN.ConsultarAsistencia();
 
@@ -168,6 +173,11 @@ namespace CapaPresentacion
 
         private void btnNomina_Click(object sender, EventArgs e)
         {
+            gBox1.Visible = false;
+            gBox2.Visible = false;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = false;
             ConsultasCN consultaCN = new ConsultasCN();
             DataSet Data = consultaCN.ConsultarNomina();
 
@@ -181,6 +191,52 @@ namespace CapaPresentacion
 
                 MessageBox.Show("No se encontraron categorías.");
             }
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+
+            gBox1.Visible = true;
+            gBox2.Visible = false;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = false;
+        }
+
+        private void btnProduc_Click(object sender, EventArgs e)
+        {
+            gBox1.Visible = false;
+            gBox2.Visible = true;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = false;
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            gBox1.Visible = false;
+            gBox2.Visible = false;
+            gBox3.Visible = true;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = false;
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            gBox1.Visible = false;
+            gBox2.Visible = false;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = true;
+            gBoxPeriodo.Visible = false;
+        }
+
+        private void btnFecha_Click(object sender, EventArgs e)
+        {
+            gBox1.Visible = false;
+            gBox2.Visible = false;
+            gBox3.Visible = false;
+            gBoxCliente.Visible = false;
+            gBoxPeriodo.Visible = true;
         }
     }
 }

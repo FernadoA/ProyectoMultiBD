@@ -38,13 +38,13 @@
             this.gBoxCliente = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cBoxCliente = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gBox3 = new System.Windows.Forms.GroupBox();
             this.btnFecha = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gBox2 = new System.Windows.Forms.GroupBox();
             this.btnTiendaPro = new System.Windows.Forms.Button();
             this.btnAlamacenPro = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gBox1 = new System.Windows.Forms.GroupBox();
             this.btnTiendaCat = new System.Windows.Forms.Button();
             this.btnAlmacenCat = new System.Windows.Forms.Button();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
@@ -62,9 +62,9 @@
             this.btnCategorias = new System.Windows.Forms.Button();
             this.gBoxPeriodo.SuspendLayout();
             this.gBoxCliente.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gBox3.SuspendLayout();
+            this.gBox2.SuspendLayout();
+            this.gBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -87,6 +87,7 @@
             this.gBoxPeriodo.TabIndex = 132;
             this.gBoxPeriodo.TabStop = false;
             this.gBoxPeriodo.Text = "Seleccione periodos a buscar";
+            this.gBoxPeriodo.Visible = false;
             // 
             // btnAceptar
             // 
@@ -148,6 +149,7 @@
             this.gBoxCliente.TabIndex = 131;
             this.gBoxCliente.TabStop = false;
             this.gBoxCliente.Text = "Seleccione el Cliente a buscar";
+            this.gBoxCliente.Visible = false;
             // 
             // label5
             // 
@@ -169,16 +171,17 @@
             this.cBoxCliente.TabIndex = 0;
             this.cBoxCliente.SelectedIndexChanged += new System.EventHandler(this.cBoxCliente_SelectedIndexChanged);
             // 
-            // groupBox3
+            // gBox3
             // 
-            this.groupBox3.Controls.Add(this.btnFecha);
-            this.groupBox3.Controls.Add(this.btnCliente);
-            this.groupBox3.Location = new System.Drawing.Point(421, 390);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(171, 141);
-            this.groupBox3.TabIndex = 130;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Seleccione consulta";
+            this.gBox3.Controls.Add(this.btnFecha);
+            this.gBox3.Controls.Add(this.btnCliente);
+            this.gBox3.Location = new System.Drawing.Point(421, 390);
+            this.gBox3.Name = "gBox3";
+            this.gBox3.Size = new System.Drawing.Size(171, 141);
+            this.gBox3.TabIndex = 130;
+            this.gBox3.TabStop = false;
+            this.gBox3.Text = "Seleccione consulta";
+            this.gBox3.Visible = false;
             // 
             // btnFecha
             // 
@@ -188,6 +191,7 @@
             this.btnFecha.TabIndex = 2;
             this.btnFecha.Text = "Por fecha";
             this.btnFecha.UseVisualStyleBackColor = true;
+            this.btnFecha.Click += new System.EventHandler(this.btnFecha_Click);
             // 
             // btnCliente
             // 
@@ -197,17 +201,19 @@
             this.btnCliente.TabIndex = 1;
             this.btnCliente.Text = "Por cliente";
             this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
-            // groupBox2
+            // gBox2
             // 
-            this.groupBox2.Controls.Add(this.btnTiendaPro);
-            this.groupBox2.Controls.Add(this.btnAlamacenPro);
-            this.groupBox2.Location = new System.Drawing.Point(421, 237);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(171, 141);
-            this.groupBox2.TabIndex = 129;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Seleccione de qué ubicación";
+            this.gBox2.Controls.Add(this.btnTiendaPro);
+            this.gBox2.Controls.Add(this.btnAlamacenPro);
+            this.gBox2.Location = new System.Drawing.Point(421, 237);
+            this.gBox2.Name = "gBox2";
+            this.gBox2.Size = new System.Drawing.Size(171, 141);
+            this.gBox2.TabIndex = 129;
+            this.gBox2.TabStop = false;
+            this.gBox2.Text = "Seleccione de qué ubicación";
+            this.gBox2.Visible = false;
             // 
             // btnTiendaPro
             // 
@@ -229,16 +235,17 @@
             this.btnAlamacenPro.UseVisualStyleBackColor = true;
             this.btnAlamacenPro.Click += new System.EventHandler(this.btnAlamacenPro_Click);
             // 
-            // groupBox1
+            // gBox1
             // 
-            this.groupBox1.Controls.Add(this.btnTiendaCat);
-            this.groupBox1.Controls.Add(this.btnAlmacenCat);
-            this.groupBox1.Location = new System.Drawing.Point(426, 90);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(171, 141);
-            this.groupBox1.TabIndex = 128;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione de qué ubicación";
+            this.gBox1.Controls.Add(this.btnTiendaCat);
+            this.gBox1.Controls.Add(this.btnAlmacenCat);
+            this.gBox1.Location = new System.Drawing.Point(426, 90);
+            this.gBox1.Name = "gBox1";
+            this.gBox1.Size = new System.Drawing.Size(171, 141);
+            this.gBox1.TabIndex = 128;
+            this.gBox1.TabStop = false;
+            this.gBox1.Text = "Seleccione de qué ubicación";
+            this.gBox1.Visible = false;
             // 
             // btnTiendaCat
             // 
@@ -356,6 +363,7 @@
             this.btnVentas.TabIndex = 4;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnNomina
             // 
@@ -385,6 +393,7 @@
             this.btnProduc.TabIndex = 1;
             this.btnProduc.Text = "Productos";
             this.btnProduc.UseVisualStyleBackColor = true;
+            this.btnProduc.Click += new System.EventHandler(this.btnProduc_Click);
             // 
             // btnCategorias
             // 
@@ -394,18 +403,19 @@
             this.btnCategorias.TabIndex = 0;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1546, 673);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.gBoxPeriodo);
             this.Controls.Add(this.gBoxCliente);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gBox3);
+            this.Controls.Add(this.gBox2);
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -417,9 +427,9 @@
             this.gBoxPeriodo.PerformLayout();
             this.gBoxCliente.ResumeLayout(false);
             this.gBoxCliente.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gBox3.ResumeLayout(false);
+            this.gBox2.ResumeLayout(false);
+            this.gBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -443,13 +453,13 @@
         private System.Windows.Forms.GroupBox gBoxCliente;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cBoxCliente;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gBox3;
         private System.Windows.Forms.Button btnFecha;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gBox2;
         private System.Windows.Forms.Button btnTiendaPro;
         private System.Windows.Forms.Button btnAlamacenPro;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gBox1;
         private System.Windows.Forms.Button btnTiendaCat;
         private System.Windows.Forms.Button btnAlmacenCat;
         private System.Windows.Forms.DataGridView dgvConsulta;

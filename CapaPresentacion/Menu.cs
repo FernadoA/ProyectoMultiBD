@@ -33,5 +33,23 @@ namespace CapaPresentacion
             Pedidos pedidos = new Pedidos();
             pedidos.Show();
         }
+
+        private void fechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pedidosxperiodo pedidosxperiodo = new Pedidosxperiodo();
+            pedidosxperiodo.Show();
+        }
+
+        private void porPeriodoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Devolucionesxperiodo devolucionesxperiodo = new Devolucionesxperiodo();
+            devolucionesxperiodo.Show();
+        }
+
+        private void devolucionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Devoluciones devoluciones = new Devoluciones();
+            devoluciones.Show();
+        }
     }
 }

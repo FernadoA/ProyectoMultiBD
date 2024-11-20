@@ -13,7 +13,7 @@ namespace CapaDatos
     public class Conexion
     {
         // Método para conexión a SQL Server
-        public SqlConnection ConectaSQL()
+        public SqlConnection ConnectionSQLSBD()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionSQL"].ConnectionString);
             return connection;

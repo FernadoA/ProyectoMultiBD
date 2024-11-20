@@ -23,7 +23,7 @@ namespace CapaDatos
         {
             using (DataSet data = new DataSet())
             {
-                conecSQL = objConecta.ConectaSQL();
+                conecSQL = objConecta.ConnectionSQLSBD();
                 adaptadorSQL = new SqlDataAdapter("CONSULTACLIENTES", conecSQL);
                 adaptadorSQL.Fill(data, "CONSCL");
                 return data;
@@ -44,7 +44,7 @@ namespace CapaDatos
         {
             using (DataSet data = new DataSet())
             {
-                conecSQL = objConecta.ConectaSQL();
+                conecSQL = objConecta.ConnectionSQLSBD();
                 adaptadorSQL = new SqlDataAdapter("CONSULTACATEGORIAS", conecSQL);
                 adaptadorSQL.Fill(data, "CONSCAT");
                 return data;
@@ -65,7 +65,7 @@ namespace CapaDatos
         {
             using (DataSet data = new DataSet())
             {
-                conecSQL = objConecta.ConectaSQL();
+                conecSQL = objConecta.ConnectionSQLSBD();
                 adaptadorSQL = new SqlDataAdapter("CONSULTAPRODUCTOS", conecSQL);
                 adaptadorSQL.Fill(data, "CONSPR");
                 return data;
@@ -95,7 +95,7 @@ namespace CapaDatos
         {
             DataSet data = new DataSet();
 
-            using (SqlConnection conec = objConecta.ConectaSQL())
+            using (SqlConnection conec = objConecta.ConnectionSQLSBD())
             {
                 using (SqlCommand cmd = new SqlCommand("MostrarVentaPorCliente", conec))
                 {
@@ -115,7 +115,7 @@ namespace CapaDatos
         {
             DataSet data = new DataSet();
 
-            using (SqlConnection conec = objConecta.ConectaSQL())
+            using (SqlConnection conec = objConecta.ConnectionSQLSBD())
             {
                 using (SqlCommand cmd = new SqlCommand("MostrarVentaPorFecha", conec))
                 {

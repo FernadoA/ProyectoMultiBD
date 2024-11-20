@@ -30,7 +30,7 @@ namespace CapaDatos
         {
             using (DataTable dtClientes = new DataTable())
             {
-                using (SqlConnection conec = objConecta.ConectaSQL())
+                using (SqlConnection conec = objConecta.ConnectionSQLSBD())
                 {
                     using (SqlDataAdapter adaptador = new SqlDataAdapter("ConsultarClientes", conec))
                     {
@@ -47,7 +47,7 @@ namespace CapaDatos
         {
             using (DataTable dtClientes = new DataTable())
             {
-                conec = objConecta.ConectaSQL();
+                conec = objConecta.ConnectionSQLSBD();
                 adaptador = new SqlDataAdapter("ConsultarClientePorID", conec);
                 adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
 

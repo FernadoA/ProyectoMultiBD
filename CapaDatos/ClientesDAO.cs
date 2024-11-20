@@ -20,7 +20,7 @@ namespace CapaDatos
         {
             using (DataSet data = new DataSet())
             {
-                conec = objConecta.ConectaSQL();
+                conec = objConecta.ConnectionSQLSBD();
                 adaptador = new SqlDataAdapter("ConsultaClientesPorId", conec);
                 adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
 

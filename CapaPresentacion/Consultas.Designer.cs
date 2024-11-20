@@ -60,6 +60,7 @@
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.btnProduc = new System.Windows.Forms.Button();
             this.btnCategorias = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.gBoxPeriodo.SuspendLayout();
             this.gBoxCliente.SuspendLayout();
             this.gBox3.SuspendLayout();
@@ -68,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -269,6 +271,7 @@
             // 
             // dgvConsulta
             // 
+            this.dgvConsulta.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Location = new System.Drawing.Point(787, 90);
             this.dgvConsulta.Name = "dgvConsulta";
@@ -313,6 +316,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Gold;
+            this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(239, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
@@ -405,6 +409,16 @@
             this.btnCategorias.UseVisualStyleBackColor = true;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(574, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Consultas";
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,6 +449,8 @@
             this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -475,5 +491,6 @@
         private System.Windows.Forms.Button btnAsistencia;
         private System.Windows.Forms.Button btnProduc;
         private System.Windows.Forms.Button btnCategorias;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -27,5 +27,11 @@ namespace CapaPresentacion
             Consultas consultas = new Consultas();
             consultas.Show();
         }
+
+        private void gestiónDePedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pedidos pedidos = new Pedidos();
+            pedidos.Show();
+        }
     }
 }

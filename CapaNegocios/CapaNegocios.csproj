@@ -48,6 +48,7 @@
     <Compile Include="DevolucionesCN.cs" />
     <Compile Include="Empleados_rhCN.cs" />
     <Compile Include="GestionPedidosCN.cs" />
+    <Compile Include="PedidosCN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

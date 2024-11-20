@@ -1,4 +1,5 @@
-﻿using CapaNegocios;
+﻿using CapaEntidad;
+using CapaNegocios;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace CapaPresentacion
     {
         private PedidosCN pedidosCN = new PedidosCN();
         
+        public bool modFlag = false;
+
         public Pedidos()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace CapaPresentacion
         private void Pedidos_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            limpiarCampos();
             ConfigurarDataGridView();
         }
 
@@ -45,7 +49,6 @@ namespace CapaPresentacion
 
                 cmbNombreCliente.SelectedIndexChanged += cmbNombreCliente_SelectedIndexChanged;
 
-                cmbNombreCliente.Enabled = cliente.Rows.Count > 0;
 
                 modificarToolStripMenuItem.Enabled = cliente.Rows.Count > 0;
 
@@ -66,8 +69,6 @@ namespace CapaPresentacion
 
                 cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
 
-                cmbCategoria.Enabled = producto.Rows.Count > 0;
-
 
 
 
@@ -85,13 +86,10 @@ namespace CapaPresentacion
 
                 cmbEmpleado.SelectedIndexChanged += cmbEmpleado_SelectedIndexChanged;
 
-                cmbEmpleado.Enabled = empleado.Rows.Count > 0;
 
-
-
+                cmbEstado.Items.Clear();
                 cmbEstado.Items.Add("Pendiente");
                 cmbEstado.Items.Add("Completado");
-                cmbEstado.Items.Add("Devuelto");
                 cmbEstado.Items.Add("Cancelado");
 
 
@@ -112,15 +110,45 @@ namespace CapaPresentacion
                     int idCliente = (int)cmbNombreCliente.SelectedValue;
 
                     // Consulta los datos de la empresa usando el ID
-                    DataTable dtViveros = pedidosCN.ConsultarClientePorID(idCliente);
+                    DataTable dtClientes = pedidosCN.ConsultarClientePorID(idCliente);
 
-                    if (dtViveros.Rows.Count > 0)
+                    if (dtClientes.Rows.Count > 0)
                     {
-                        DataRow row = dtViveros.Rows[0];
+                        DataRow row = dtClientes.Rows[0];
                         txtIdCliente.Text = row["IDCliente"].ToString();
                         txtDomicilio.Text = row["Domicilio"].ToString();
                         txtCorreo.Text = row["Correo"].ToString();
                         txtTelefono.Text = row["Tel"].ToString();
+
+                    }
+
+                    if (modFlag)
+                    {
+                        DataTable pedidos = pedidosCN.ObtenerPedidosPorCliente(idCliente);
+
+                        if (pedidos.Rows.Count > 0)
+                        {
+                            // Mostrar los pedidos en un control como DataGridView
+                            dgvPedidos.DataSource = pedidos;
+
+
+                            cmbSelectPedido.SelectedIndexChanged -= cmbSelectPedido_SelectedIndexChanged;
+
+                            cmbSelectPedido.DataSource = null;
+                            cmbSelectPedido.Items.Clear();
+                            cmbSelectPedido.Items.Add(""); // Opción vacía
+                            cmbSelectPedido.DataSource = pedidos;
+                            cmbSelectPedido.DisplayMember = "idPedido"; // Propiedad para mostrar
+                            cmbSelectPedido.ValueMember = "idPedido"; // Propiedad para el valor
+
+                            cmbSelectPedido.SelectedIndexChanged += cmbSelectPedido_SelectedIndexChanged;
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron pedidos para este cliente.");
+                        }
 
                     }
 
@@ -139,38 +167,30 @@ namespace CapaPresentacion
 
             cmbNombreCliente.Enabled = true;
             cmbCategoria.Enabled = true;
-            cmbNombre.Enabled = true;
             cmbEstado.Enabled = true;
             cmbEmpleado.Enabled = true;
             txtCantidad.Enabled = true;
+
+            cmdAgregar.Enabled = true;
+
+            grabarToolStripMenuItem.Enabled = true;
+            modificarToolStripMenuItem.Enabled = false;
+            nuevoToolStripMenuItem.Enabled = false;
         }
 
         private string GenerarNuevoId()
         {
-            int id;
             try
             {
-                id = pedidosCN.ObtenerSiguienteID("gestionPedidos");
-
-                if (id == 0)
-                {
-                    // Si el id es 0, lanzamos una excepción con un mensaje explicativo.
-                    return "1";
-                }
+                int id = pedidosCN.ObtenerSiguienteID("gestionPedidos");
+                return id.ToString();
             }
             catch (Exception e)
             {
-                // Aquí puedes registrar el error o mostrar un mensaje.
-                // Por ejemplo, mostrar el error en un MessageBox:
+                // Manejo de error
                 MessageBox.Show("Error al generar el nuevo ID: " + e.Message);
-
-                // O también podrías registrar el error en un archivo de log:
-                // Log.Error("Error al generar el ID: " + e.Message);
-
-                return "1"; // O podrías devolver un valor predeterminado si lo prefieres.
+                return "1"; // Valor predeterminado
             }
-
-            return id.ToString();
         }
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,18 +206,18 @@ namespace CapaPresentacion
                     DataTable dtProductos = pedidosCN.ConsultarProductosPorCategoria(idCategoria);
 
 
-                    cmbNombre.SelectedIndexChanged -= cmbNombre_SelectedIndexChanged;
+                    cmbProducto.SelectedIndexChanged -= cmbNombre_SelectedIndexChanged;
 
-                    cmbNombre.DataSource = null;
-                    cmbNombre.Items.Clear();
-                    cmbNombre.Items.Add(""); // Opción vacía
-                    cmbNombre.DataSource = dtProductos;
-                    cmbNombre.DisplayMember = "Nombre"; // Propiedad para mostrar
-                    cmbNombre.ValueMember = "codigo"; // Propiedad para el valor
+                    cmbProducto.DataSource = null;
+                    cmbProducto.Items.Clear();
+                    cmbProducto.Items.Add(""); // Opción vacía
+                    cmbProducto.DataSource = dtProductos;
+                    cmbProducto.DisplayMember = "Nombre"; // Propiedad para mostrar
+                    cmbProducto.ValueMember = "codigo"; // Propiedad para el valor
 
-                    cmbNombre.SelectedIndexChanged += cmbNombre_SelectedIndexChanged;
+                    cmbProducto.SelectedIndexChanged += cmbNombre_SelectedIndexChanged;
 
-                    cmbNombre.Enabled = dtProductos.Rows.Count > 0;
+                    cmbProducto.Enabled = dtProductos.Rows.Count > 0;
 
                 }
             }
@@ -212,10 +232,10 @@ namespace CapaPresentacion
         {
             try
             {
-                if (cmbNombre.SelectedIndex >= 0)
+                if (cmbProducto.SelectedIndex >= 0)
                 {
                     // Obtiene el ID de la empresa seleccionado
-                    String codigo = cmbNombre.SelectedValue.ToString();
+                    String codigo = cmbProducto.SelectedValue.ToString();
 
                     // Consulta los datos de la empresa usando el ID
                     DataTable dtProducto = pedidosCN.ConsultarProductoPorCodigo(codigo);
@@ -276,11 +296,11 @@ namespace CapaPresentacion
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            dgvDetallePedido.Rows.Add(txtIdPedido.Text, txtCodigo.Text, cmbCategoria.Text, cmbNombre.Text, txtPrecio.Text, txtExistencias.Text);
+            dgvDetallePedido.Rows.Add(txtIdPedido.Text, txtCodigo.Text, cmbCategoria.Text, cmbProducto.Text, txtPrecio.Text, txtCantidad.Text, txtExistencias.Text);
 
             cmbCategoria.SelectedIndex = -1;
             txtCodigo.Clear();
-            cmbNombre.SelectedIndex = -1;
+            cmbProducto.SelectedIndex = -1;
             txtPrecio.Clear();
             cmbCategoria.SelectedIndex = -1;
             txtExistencias.Clear();
@@ -294,6 +314,7 @@ namespace CapaPresentacion
             dgvDetallePedido.Columns.Add("concepto", "Concepto");
             dgvDetallePedido.Columns.Add("nombre", "Nombre");
             dgvDetallePedido.Columns.Add("precio", "Precio");
+            dgvDetallePedido.Columns.Add("cantidad", "Cantidad");
             dgvDetallePedido.Columns.Add("existencias", "Existencias");
         }
 
@@ -310,6 +331,7 @@ namespace CapaPresentacion
             detallePedido.Columns.Add("concepto", typeof(string));
             detallePedido.Columns.Add("nombre", typeof(string));
             detallePedido.Columns.Add("precio", typeof(decimal));
+            detallePedido.Columns.Add("cantidad", typeof(int));
             detallePedido.Columns.Add("existencias", typeof(int));
 
 
@@ -334,47 +356,151 @@ namespace CapaPresentacion
         {
             try
             {
-                // Validar que los campos del formulario de pedido estén completos
-                if (!string.IsNullOrWhiteSpace(txtIdEmpleado.Text) &&
-                    !string.IsNullOrWhiteSpace(txtIdCliente.Text) &&
-                    !string.IsNullOrWhiteSpace(cmbEstado.Text) &&
-                    dgvDetallePedido.Rows.Count > 0)
+                if (!modFlag)
                 {
-                    // Crear el objeto del pedido principal
-                    Pedido pedido = new Pedido
+                    // Validar que los campos del formulario de pedido estén completos
+                    if (!string.IsNullOrWhiteSpace(txtIdEmpleado.Text) &&
+                        !string.IsNullOrWhiteSpace(txtIdCliente.Text) &&
+                        !string.IsNullOrWhiteSpace(cmbEstado.Text) &&
+                        dgvDetallePedido.Rows.Count > 0)
                     {
-                        IdEmpleado = int.Parse(txtIdEmpleado.Text),
-                        IdCliente = int.Parse(txtIdCliente.Text),
-                        Fecha = DateTime.Now, // Puedes usar un DateTimePicker para elegir la fecha
-                        Estado = cmbEstado.Text
-                    };
 
-                    // Insertar el pedido principal y obtener el ID generado
-                    int idPedido = pedidosCN.InsertarPedido(pedido);
+                        // Crear el pedido principal
+                        int idEmpleado = int.Parse(txtIdEmpleado.Text);
+                        int idCliente = int.Parse(txtIdCliente.Text);
+                        string estado = cmbEstado.Text;
+                        DateTime fecha = DateTime.Now;
+
+                        // Insertar el pedido principal
+                        pedidosCN.InsertarPedido(idEmpleado, idCliente, fecha, estado);
+
+                        // Crear un DataTable con el detalle del pedido desde el DataGridView
+                        DataTable detallePedido = ObtenerDetallePedidoDGV();
+
+                        // Insertar el detalle del pedido
+                        int idPedido = int.Parse(txtIdPedido.Text); // Si tienes lógica para recuperar el último ID
+                        pedidosCN.InsertarDetallePedido(idPedido, detallePedido);
+
+                        // Mostrar mensaje de éxito
+                        MessageBox.Show("Pedido y detalle del pedido guardados con éxito.");
 
 
-                    // Obtener el detalle del pedido desde el DataGridView
-                    DataTable detallePedido = ObtenerDetallePedidoDGV();
+                        pedidosCN.ActualizarEstadoPorPedido(idPedido);
 
-                    // Insertar el detalle del pedido
-                    pedidosCN.InsertarDetallePedido(detallePedido);
+                        CargarDatos();
 
-                    // Mostrar mensaje de éxito
-                    MessageBox.Show("Pedido y detalle del pedido guardados con éxito.");
+                        // Limpiar formulario
+                        limpiarCampos();
+                        dgvDetallePedido.Rows.Clear();
+                        
+                        deshabilita();
+                        cmbEstado.Enabled = false;
 
-                    // Limpiar formulario
-                    LimpiarFormulario();
+                        nuevoToolStripMenuItem.Enabled = true;
+                        modificarToolStripMenuItem.Enabled = true;
+                        grabarToolStripMenuItem.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asegúrate de completar todos los campos del pedido y agregar al menos un producto.");
+                    }
+
 
                 }
                 else
                 {
-                    MessageBox.Show("Asegúrate de completar todos los campos del pedido y agregar al menos un producto.");
+                    pedidosCN.CambiarEstadoPedido(int.Parse(cmbSelectPedido.Text), cmbEstado.Text);
+
+                    pedidosCN.ActualizarEstadoPorPedido(int.Parse(cmbSelectPedido.Text));
+
+                    CargarDatos();
+
+                    limpiarCampos();
+                    dgvPedidos.DataSource = null;
+
+                    deshabilita();
+
+                    lblSelec.Visible = false;
+                    cmbSelectPedido.Visible = false;
+
+                    cmbEstado.Enabled = false;
+                    cmbSelectPedido.SelectedIndex = -1;
+
+                    nuevoToolStripMenuItem.Enabled = true;
+                    modificarToolStripMenuItem.Enabled = true;
+                    grabarToolStripMenuItem.Enabled = false;
+
+
+                    modFlag = false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar los datos: " + ex.Message);
             }
+        }
+
+        public void limpiarCampos()
+        {
+            txtIdCliente.Text = string.Empty;
+            cmbNombreCliente.SelectedIndex = -1;
+            txtDomicilio.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            txtIdPedido.Text = string.Empty;
+            cmbCategoria.SelectedIndex = -1;
+            cmbProducto.SelectedIndex = -1;
+            txtCodigo.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            txtCantidad.Text = string.Empty;
+            cmbEstado.SelectedIndex = -1;
+
+            txtIdEmpleado.Text = string.Empty;
+            cmbEmpleado.SelectedIndex = -1;
+            txtCargo.Text = string.Empty;
+            txtCorreoE.Text = string.Empty;
+            txtTelefonoE.Text = string.Empty;
+            txtTurno.Text = string.Empty;
+            txtEstadoE.Text = string.Empty;
+        }
+
+        public void deshabilita()
+        {
+            cmbNombreCliente.Enabled = false;
+            cmbCategoria.Enabled = false;
+            cmbProducto.Enabled = false;
+            cmbEmpleado.Enabled = false;
+            cmbSelectPedido.Enabled = false;
+
+            txtCantidad.Enabled = false;
+
+            cmdAgregar.Enabled = false;
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            modFlag = true;
+            
+            lblSelec.Visible = true;
+            cmbSelectPedido.Visible = true;
+
+            deshabilita();
+
+            cmbNombreCliente.Enabled = true;
+
+            cmbSelectPedido.Enabled = true;
+            cmbEstado.Enabled = true;
+
+            grabarToolStripMenuItem.Enabled = true;
+            nuevoToolStripMenuItem.Enabled = false;
+            modificarToolStripMenuItem.Enabled = false;
+
+        }
+
+        private void cmbSelectPedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

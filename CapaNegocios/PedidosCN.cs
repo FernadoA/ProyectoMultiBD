@@ -65,5 +65,52 @@ namespace CapaNegocios
             return pedidosDAO.ConsultarEmpleadoPorId(idEmpleado);
         }
 
+
+        public void InsertarPedido(int idEmpleado, int idCliente, DateTime fecha, string estado)
+        {
+            // Llama al método en la capa de datos
+            pedidosDAO.InsertarPedido(idEmpleado, idCliente, fecha, estado);
+        }
+
+
+        public void InsertarDetallePedido(int idPedido, DataTable detallePedido)
+        {
+            // Llama al método en la capa de datos
+            pedidosDAO.InsertarDetallePedido(idPedido, detallePedido);
+        }
+
+
+
+        public void ActualizarEstadoPorPedido(int idPedido)
+        {
+            // Paso 1: Obtener estado del pedido desde SQL Server
+            var (idEmpleado, estadoPedido) = pedidosDAO.ObtenerEstadoPedido(idPedido);
+
+            if (idEmpleado > 0 && !string.IsNullOrEmpty(estadoPedido))
+            {
+                // Paso 2: Actualizar estado del empleado en PostgreSQL
+                pedidosDAO.ActualizarEstadoEmpleado(idEmpleado, estadoPedido);
+            }
+            else
+            {
+                throw new Exception("No se encontró información válida del pedido.");
+            }
+        }
+
+
+
+        public void CambiarEstadoPedido(int idPedido, string nuevoEstado)
+        {
+            pedidosDAO.ActualizarEstadoPedido(idPedido, nuevoEstado);
+        }
+
+
+
+        public DataTable ObtenerPedidosPorCliente(int idCliente)
+        {
+            return pedidosDAO.ConsultarPedidosPorCliente(idCliente);
+        }
+
+
     }
 }

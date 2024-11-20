@@ -133,6 +133,7 @@
     <Compile Include="DevolucionesDAO.cs" />
     <Compile Include="Empleados_rhDAO.cs" />
     <Compile Include="GestionPedidosDAO.cs" />
+    <Compile Include="PedidosDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

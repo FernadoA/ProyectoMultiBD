@@ -39,10 +39,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.gBoxPeriodo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoxFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -160,6 +160,16 @@
             this.panel5.Size = new System.Drawing.Size(1105, 74);
             this.panel5.TabIndex = 138;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(342, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(392, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Consulta de Pedidos por Periodo";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LemonChiffon;
@@ -182,6 +192,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(63, 63);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // panel3
             // 
@@ -192,16 +203,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1105, 65);
             this.panel3.TabIndex = 139;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(342, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(392, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Consulta de Pedidos por Periodo";
             // 
             // Pedidosxperiodo
             // 

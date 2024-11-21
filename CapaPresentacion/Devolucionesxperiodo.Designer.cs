@@ -39,10 +39,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevxFecha)).BeginInit();
             this.gBoxPeriodo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -160,6 +160,16 @@
             this.panel5.Size = new System.Drawing.Size(937, 74);
             this.panel5.TabIndex = 140;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(241, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(431, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Consulta de Devolución por Periodo";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.menuStrip1);
@@ -192,16 +202,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(63, 63);
             this.salirToolStripMenuItem.Text = "Salir";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(241, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(431, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Consulta de Devolución por Periodo";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Devolucionesxperiodo
             // 

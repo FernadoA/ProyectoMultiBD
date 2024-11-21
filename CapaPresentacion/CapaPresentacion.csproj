@@ -166,6 +166,12 @@
     <Compile Include="Devolucionesxperiodo.Designer.cs">
       <DependentUpon>Devolucionesxperiodo.cs</DependentUpon>
     </Compile>
+    <Compile Include="inicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inicioSesion.Designer.cs">
+      <DependentUpon>inicioSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Devolucionesxperiodo.resx">
       <DependentUpon>Devolucionesxperiodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inicioSesion.resx">
+      <DependentUpon>inicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

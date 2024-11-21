@@ -51,6 +51,8 @@
     <Compile Include="PedidosCN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportesCN.cs" />
+    <Compile Include="SesionActualCN.cs" />
+    <Compile Include="UsuariosCN.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

@@ -32,23 +32,25 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.cmdCerrarSesion = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosMásPedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.porPeriodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosMásDevueltosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,10 +64,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.movimientosToolStripMenuItem,
             this.consultasToolStripMenuItem2});
-            this.menuStrip1.Location = new System.Drawing.Point(239, 74);
+            this.menuStrip1.Location = new System.Drawing.Point(179, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(561, 57);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(580, 46);
             this.menuStrip1.TabIndex = 105;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,18 +77,25 @@
             this.gestiónDePedidosToolStripMenuItem,
             this.devolucionesToolStripMenuItem});
             this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
-            this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(148, 55);
+            this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(118, 44);
             this.movimientosToolStripMenuItem.Text = "Movimientos";
             // 
             // gestiónDePedidosToolStripMenuItem
             // 
             this.gestiónDePedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarToolStripMenuItem1,
             this.consultasToolStripMenuItem});
             this.gestiónDePedidosToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.gestiónDePedidosToolStripMenuItem.Name = "gestiónDePedidosToolStripMenuItem";
-            this.gestiónDePedidosToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.gestiónDePedidosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.gestiónDePedidosToolStripMenuItem.Text = "Gestión de pedidos";
-            this.gestiónDePedidosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDePedidosToolStripMenuItem_Click);
+            // 
+            // registrarToolStripMenuItem1
+            // 
+            this.registrarToolStripMenuItem1.Name = "registrarToolStripMenuItem1";
+            this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.registrarToolStripMenuItem1.Text = "Registro";
+            this.registrarToolStripMenuItem1.Click += new System.EventHandler(this.registrarToolStripMenuItem1_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -94,18 +103,38 @@
             this.fechaToolStripMenuItem,
             this.productosMásPedidosToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // fechaToolStripMenuItem
+            // 
+            this.fechaToolStripMenuItem.Name = "fechaToolStripMenuItem";
+            this.fechaToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.fechaToolStripMenuItem.Text = "Fecha";
+            this.fechaToolStripMenuItem.Click += new System.EventHandler(this.fechaToolStripMenuItem_Click);
+            // 
+            // productosMásPedidosToolStripMenuItem
+            // 
+            this.productosMásPedidosToolStripMenuItem.Name = "productosMásPedidosToolStripMenuItem";
+            this.productosMásPedidosToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.productosMásPedidosToolStripMenuItem.Text = "Productos más pedidos";
             // 
             // devolucionesToolStripMenuItem
             // 
             this.devolucionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarToolStripMenuItem,
             this.consultasToolStripMenuItem1});
             this.devolucionesToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.devolucionesToolStripMenuItem.Name = "devolucionesToolStripMenuItem";
-            this.devolucionesToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.devolucionesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.devolucionesToolStripMenuItem.Text = "Devoluciones";
-            this.devolucionesToolStripMenuItem.Click += new System.EventHandler(this.devolucionesToolStripMenuItem_Click);
+            // 
+            // registrarToolStripMenuItem
+            // 
+            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.registrarToolStripMenuItem.Text = "Registro";
+            this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem1
             // 
@@ -113,64 +142,85 @@
             this.porPeriodoToolStripMenuItem,
             this.productosMásDevueltosToolStripMenuItem});
             this.consultasToolStripMenuItem1.Name = "consultasToolStripMenuItem1";
-            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.consultasToolStripMenuItem1.Text = "Consultas";
+            // 
+            // porPeriodoToolStripMenuItem
+            // 
+            this.porPeriodoToolStripMenuItem.Name = "porPeriodoToolStripMenuItem";
+            this.porPeriodoToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.porPeriodoToolStripMenuItem.Text = "Por periodo";
+            this.porPeriodoToolStripMenuItem.Click += new System.EventHandler(this.porPeriodoToolStripMenuItem_Click);
+            // 
+            // productosMásDevueltosToolStripMenuItem
+            // 
+            this.productosMásDevueltosToolStripMenuItem.Name = "productosMásDevueltosToolStripMenuItem";
+            this.productosMásDevueltosToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.productosMásDevueltosToolStripMenuItem.Text = "Productos más devueltos";
             // 
             // consultasToolStripMenuItem2
             // 
             this.consultasToolStripMenuItem2.Name = "consultasToolStripMenuItem2";
-            this.consultasToolStripMenuItem2.Size = new System.Drawing.Size(119, 55);
+            this.consultasToolStripMenuItem2.Size = new System.Drawing.Size(94, 44);
             this.consultasToolStripMenuItem2.Text = "Consultas";
             this.consultasToolStripMenuItem2.Click += new System.EventHandler(this.consultasToolStripMenuItem2_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Gold;
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.tableLayoutPanel2);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.lblRol);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.lblUsuario);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(239, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(179, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(561, 74);
+            this.panel5.Size = new System.Drawing.Size(580, 60);
             this.panel5.TabIndex = 104;
             // 
-            // panel6
+            // label1
             // 
-            this.panel6.Controls.Add(this.cmdCerrarSesion);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(354, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(207, 74);
-            this.panel6.TabIndex = 100;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(10, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Usuario:";
             // 
-            // cmdCerrarSesion
+            // lblRol
             // 
-            this.cmdCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrarSesion.Location = new System.Drawing.Point(17, 18);
-            this.cmdCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmdCerrarSesion.Name = "cmdCerrarSesion";
-            this.cmdCerrarSesion.Size = new System.Drawing.Size(177, 38);
-            this.cmdCerrarSesion.TabIndex = 99;
-            this.cmdCerrarSesion.Text = "Cerrar sesión";
-            this.cmdCerrarSesion.UseVisualStyleBackColor = true;
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblRol.ForeColor = System.Drawing.Color.Black;
+            this.lblRol.Location = new System.Drawing.Point(39, 32);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(32, 16);
+            this.lblRol.TabIndex = 104;
+            this.lblRol.Text = "ROL";
             // 
-            // tableLayoutPanel2
+            // label2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.83648F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 520F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(556, 74);
-            this.tableLayoutPanel2.TabIndex = 99;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(10, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 16);
+            this.label2.TabIndex = 103;
+            this.label2.Text = "Rol:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lblUsuario.Location = new System.Drawing.Point(67, 16);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(63, 16);
+            this.lblUsuario.TabIndex = 102;
+            this.lblUsuario.Text = "USUARIO";
             // 
             // panel1
             // 
@@ -178,64 +228,36 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 450);
+            this.panel1.Size = new System.Drawing.Size(179, 455);
             this.panel1.TabIndex = 103;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 186);
+            this.pictureBox1.Size = new System.Drawing.Size(159, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 103;
             this.pictureBox1.TabStop = false;
             // 
-            // fechaToolStripMenuItem
-            // 
-            this.fechaToolStripMenuItem.Name = "fechaToolStripMenuItem";
-            this.fechaToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
-            this.fechaToolStripMenuItem.Text = "Fecha";
-            this.fechaToolStripMenuItem.Click += new System.EventHandler(this.fechaToolStripMenuItem_Click);
-            // 
-            // productosMásPedidosToolStripMenuItem
-            // 
-            this.productosMásPedidosToolStripMenuItem.Name = "productosMásPedidosToolStripMenuItem";
-            this.productosMásPedidosToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
-            this.productosMásPedidosToolStripMenuItem.Text = "Productos más pedidos";
-            // 
-            // porPeriodoToolStripMenuItem
-            // 
-            this.porPeriodoToolStripMenuItem.Name = "porPeriodoToolStripMenuItem";
-            this.porPeriodoToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
-            this.porPeriodoToolStripMenuItem.Text = "Por periodo";
-            this.porPeriodoToolStripMenuItem.Click += new System.EventHandler(this.porPeriodoToolStripMenuItem_Click);
-            // 
-            // productosMásDevueltosToolStripMenuItem
-            // 
-            this.productosMásDevueltosToolStripMenuItem.Name = "productosMásDevueltosToolStripMenuItem";
-            this.productosMásDevueltosToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
-            this.productosMásDevueltosToolStripMenuItem.Text = "Productos más devueltos";
-            // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(759, 455);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Text = "Menú";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -251,9 +273,6 @@
         private System.Windows.Forms.ToolStripMenuItem devolucionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button cmdCerrarSesion;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem2;
@@ -261,6 +280,12 @@
         private System.Windows.Forms.ToolStripMenuItem productosMásPedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porPeriodoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosMásDevueltosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem1;
     }
 }
 

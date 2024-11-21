@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace CapaPresentacion
 {
     public partial class Menu : Form
     {
+        private SesionActualCN SesionActualCN = new SesionActualCN();
+
         public Menu()
         {
             InitializeComponent();
@@ -19,7 +22,7 @@ namespace CapaPresentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            validarSesion();
         }
 
         private void consultasToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -28,11 +31,6 @@ namespace CapaPresentacion
             consultas.Show();
         }
 
-        private void gestiónDePedidosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Pedidos pedidos = new Pedidos();
-            pedidos.Show();
-        }
 
         private void fechaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,10 +44,29 @@ namespace CapaPresentacion
             devolucionesxperiodo.Show();
         }
 
-        private void devolucionesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Devoluciones devoluciones = new Devoluciones();
             devoluciones.Show();
+        }
+
+        private void validarSesion()
+        {
+            lblUsuario.Text = SesionActualCN.UsuarioActual;
+            lblRol.Text = SesionActualCN.RolActual;
+
+            if (SesionActualCN.RolActual == "User")
+            {
+                consultasToolStripMenuItem.Enabled = false;
+                consultasToolStripMenuItem1.Enabled = false;
+                consultasToolStripMenuItem2.Enabled = false;
+            }
+        }
+
+        private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pedidos pedidos = new Pedidos();
+            pedidos.Show();
         }
     }
 }

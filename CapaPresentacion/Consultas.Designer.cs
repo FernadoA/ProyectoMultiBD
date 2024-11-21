@@ -52,6 +52,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,7 +61,6 @@
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.btnProduc = new System.Windows.Forms.Button();
             this.btnCategorias = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.gBoxPeriodo.SuspendLayout();
             this.gBoxCliente.SuspendLayout();
             this.gBox3.SuspendLayout();
@@ -312,6 +312,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(63, 63);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // panel5
             // 
@@ -323,6 +324,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1307, 74);
             this.panel5.TabIndex = 124;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(574, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Consultas";
             // 
             // panel1
             // 
@@ -408,16 +419,6 @@
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.UseVisualStyleBackColor = true;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(574, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Consultas";
             // 
             // Consultas
             // 

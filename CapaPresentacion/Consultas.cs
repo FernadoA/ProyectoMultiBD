@@ -238,5 +238,10 @@ namespace CapaPresentacion
             gBoxCliente.Visible = false;
             gBoxPeriodo.Visible = true;
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -68,5 +68,10 @@ namespace CapaPresentacion
             Pedidos pedidos = new Pedidos();
             pedidos.Show();
         }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           Application.Exit();
+        }
     }
 }
